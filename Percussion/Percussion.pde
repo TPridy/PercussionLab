@@ -1,9 +1,8 @@
 //import Audio Library
 import ddf.minim.*;
 
-//Buttons
-Button cymbal;
-Button drum;
+//Array of Buttons
+Button[] buttons = new Button[2];
 
 void setup() 
 {
@@ -11,32 +10,36 @@ void setup()
   fill(255, 0, 0);
   noStroke();
   smooth();
-  drum   = new Button(50, 120, "drum.wav"   , "Drum"  );
-  cymbal = new Button(250, 120, "cymbal.wav" , "Cymbal");
+  buttons[0] = new Button(50, 120, "drum.wav"   , "Drum"  );  
+  buttons[1] = new Button(250, 120, "cymbal.wav" , "Cymbal"); 
 }
 
 void draw() 
 {
   background(255);
-  drum.display();
-  cymbal.display();
+  for (int i = 0; i< buttons.length; ++i)
+  {
+    buttons[i].display();
+  }
 }
 
 void mousePressed()
 {
-  if (drum.isInside(mouseX,mouseY))
+  for (int i = 0; i< buttons.length; ++i)
   {
-    drum.press();
+    if (buttons[i].isInside(mouseX,mouseY))
+    {
+      buttons[i].press();
+    }
   }
-  else if (cymbal.isInside(mouseX,mouseY))
-  {
-    cymbal.press();
-  }
+ 
 }
 
 void stop() 
 {
-  cymbal.quit();
-  drum.quit();
+  for (int i = 0; i< buttons.length; ++i)
+  {
+    buttons[i].quit();
+  }
   super.stop();
 }

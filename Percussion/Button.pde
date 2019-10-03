@@ -50,12 +50,13 @@ class Button
   void display()
   {
     //Rectangles
-    fill(0, 0, 0);
+    fill(211);
     rect(this.x, this.y, this.w, this.h);
     
     //Button Labels
-    fill(255,255,255);
-    text(this.label, this.x + (this.w/4),this.y + (this.h/2) + 5);  
+    fill(0);
+    textSize(18);
+    text(this.label, this.x + this.w/4 ,this.y + this.h/3 , WIDTH, HEIGHT);  
   }
   
   void press()
