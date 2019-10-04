@@ -48,6 +48,8 @@ class Button
   //*************************************************************************************
   
   /** Determines whether or not the cursor is within the button
+   * @param mx mouse x coordinate
+   * @param my mouse y coordinate
    * @return inside A boolean- true if the cursor is within the button
   */
   Boolean isInside(int mx, int my)
@@ -83,6 +85,8 @@ class Button
     this.sound.trigger();
   }
   
+  /** Closes the audio object that we open
+  */
   void quit()
   {
     this.sound.close();
